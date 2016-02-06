@@ -30,17 +30,16 @@ public class Main {
 
 		// Invoke method with reflection.
 		try {
-			String result = (String) method.invoke(x, (Object)null);
+//			String result = (String) method.invoke(x, (Object)null);	//error case
+			String result = (String) method.invoke(x, "world!");		//right case
 			System.out.println(result);
-		} catch (NullPointerException e) {
-			System.out.println("ぬるぽ");
-		} catch (IllegalArgumentException e) {
+		}catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
 //			e.printStackTrace();
-			System.out.println(e.getTargetException());
+			System.out.println(e.getTargetException());					//get throwed exception
 		}
 
 	}
